@@ -1,5 +1,6 @@
 #include "ProcessManagement.hpp"
 #include <iostream>
+#include "../encrypt_decrypt/Cryption.hpp"
 
 ProcessManagement::ProcessManagement() {
     std::cout << "[ProcessManagement] Initialized\n";
@@ -28,6 +29,8 @@ void ProcessManagement::executeTasks() {
         std::cout << "Processing Task: " << task->toString() << "\n";
 
         taskQueue.pop();
+        
+        executeCryption(task->toString());
     }
 
     std::cout << "[ProcessManagement] Task execution finished.\n";
